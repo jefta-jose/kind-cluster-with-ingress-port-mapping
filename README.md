@@ -16,7 +16,7 @@ This guide explains how to:
 ## 1️⃣ Create the Cluster
 
 ```bash
-kind create cluster --name go-api-cluster --config kind-config.yaml --wait 5m
+kind create cluster --config kind-config.yaml --wait 5m
 ```
 
 ### What this does
@@ -38,13 +38,13 @@ kubectl config current-context
 Expected:
 
 ```
-kind-go-api-cluster
+kind-kind
 ```
 
 If not:
 
 ```bash
-kubectl config use-context kind-go-api-cluster
+kubectl config use-context kind-kind
 ```
 
 ---
@@ -105,7 +105,7 @@ docker build -t ecom-go-api-project:latest .
 ### Load image into Kind cluster
 
 ```bash
-kind load docker-image ecom-go-api-project:latest --name go-api-cluster
+kind load docker-image ecom-go-api-project:latest
 ```
 
 ### Why this step is required
@@ -171,7 +171,7 @@ docker build -t ecom-go-api-project:latest .
 ## 2️⃣ Reload Image into Kind
 
 ```bash
-kind load docker-image ecom-go-api-project:latest --name go-api-cluster
+kind load docker-image ecom-go-api-project:latest
 ```
 
 ---
@@ -258,7 +258,7 @@ helm uninstall go-api
 ### Delete Cluster
 
 ```bash
-kind delete cluster --name go-api-cluster
+kind delete cluster
 ```
 
 ---
