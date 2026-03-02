@@ -215,12 +215,6 @@ Only change:
 
 ## Example: Node API Setup
 
-### Create Cluster
-
-```bash
-kind create cluster --name node-api-cluster --config kind-config.yaml
-```
-
 ### Add Domain Mapping
 
 ```bash
