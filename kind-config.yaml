@@ -1,10 +1,17 @@
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
+  # Control plane nodes
   - role: control-plane
+
+  # Worker nodes
+  # In order for an Ingress to work in your cluster, there must be an ingress controller running. 
+  # You need to select at least one ingress controller and make sure it is set up in your cluster.
+  - role: worker
     kubeadmConfigPatches:
       - |
-        kind: InitConfiguration
+        kind: JoinConfiguration
+        apiVersion: kubeadm.k8s.io/v1beta4
         nodeRegistration:
           kubeletExtraArgs:
             node-labels: "ingress-ready=true"
